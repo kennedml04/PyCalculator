@@ -3,7 +3,6 @@ Created on Jul 23, 2021
 
 @author: Matt Kennedy
 '''
-from pickle import FALSE
 
 """
 A class to parse input from the user and return output to the GUI 
@@ -12,9 +11,12 @@ class Calculator:
 
     def __init__(self):
         self.value = ''
+        # Store the value of the operator
         self.operator = ''
         self.first_operand = ''
+        # Keep track of whether or not the number being calculated is an int/float
         self.is_float = False
+        self.has_error = False
         
     """
     A function that receives an input (integer, operand, etc.) and determines
@@ -22,6 +24,11 @@ class Calculator:
     """
     def parse_input(self,input):
         # input is a number
+        if(self.has_error):
+            self.is_float = False
+            self.first_operand = ''
+            self.value = ''
+            self.has_error = False
         if(isinstance(input,int)):
             self.value += str(input)
         # input is a decimal point
@@ -56,7 +63,6 @@ class Calculator:
         return self.value
     
     def calculate(self, first_operand, operator, second_operand):
-        print("IN CALCULATE")
         if operator == "+":
             if(self.is_float):
                 self.value = self.add_float(first_operand, second_operand)
@@ -95,6 +101,6 @@ class Calculator:
     
     def divide(self,x,y):
         if(int(y) == 0):
+            self.has_error = True
             return "CANNOT DIVIDE BY ZERO"
         return float(x)/float(y)
-   
