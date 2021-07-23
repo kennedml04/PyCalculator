@@ -13,7 +13,7 @@ the parent class
 """
 class Gui(tk.Tk):
 
-    def __init__(self, params):
+    def __init__(self):
         
         # Initialize parent class
         super().__init__()
@@ -41,4 +41,16 @@ class Gui(tk.Tk):
     def create_button_elements(self):
         pass
     
-        
+    '''
+    Main function of class. Calls inherented mainloop method.
+    NOTE: Calling this function starts an infinite loop.
+    '''
+    def main(self):
+        self.mainloop()
+ 
+ 
+if __name__ == "__main__":
+    # Create Gui object
+    gui = Gui()
+    # Start the gui
+    gui.main()       
