@@ -70,13 +70,16 @@ class Gui(tk.Tk):
         button_frame_row_1 = ttk.Frame(outer_frame)
         button_frame_row_1.pack()
         
-        clear_button = ttk.Button(button_frame_row_1, text='C')
+        clear_button = ttk.Button(button_frame_row_1, text='C', command=
+                                  lambda button='C':self.on_button_clicked(button))
         clear_button.pack(side="left")
         
-        inverse_button = ttk.Button(button_frame_row_1, text='+/-')
+        inverse_button = ttk.Button(button_frame_row_1, text='+/-', command=
+                                    lambda button='+/-':self.on_button_clicked(button))
         inverse_button.pack(side="left")
         
-        divide_button = ttk.Button(button_frame_row_1, text='/')
+        divide_button = ttk.Button(button_frame_row_1, text='/', command=
+                                   lambda button='/':self.on_button_clicked(button))
         divide_button.pack(side="left")
         
         button_frame_row_1.pack()
@@ -85,16 +88,20 @@ class Gui(tk.Tk):
         button_frame_row_2 = ttk.Frame(outer_frame)
         button_frame_row_2.pack()
         
-        seven_button = ttk.Button(button_frame_row_2, text=7)
+        seven_button = ttk.Button(button_frame_row_2, text=7, command = 
+                                  lambda button=7:self.on_button_clicked(button))
         seven_button.pack(side="left")
         
-        eight_button = ttk.Button(button_frame_row_2, text=8)
+        eight_button = ttk.Button(button_frame_row_2, text=8, command=
+                                  lambda button=8:self.on_button_clicked(button))
         eight_button.pack(side="left")
         
-        nine_button = ttk.Button(button_frame_row_2, text=9)
+        nine_button = ttk.Button(button_frame_row_2, text=9, command=
+                                 lambda button=9:self.on_button_clicked(button))
         nine_button.pack(side="left")
         
-        mult_button = ttk.Button(button_frame_row_2, text='*')
+        mult_button = ttk.Button(button_frame_row_2, text='*', command=
+                                 lambda button='*':self.on_button_clicked(button))
         mult_button.pack(side="left")
         
         button_frame_row_2.pack()
@@ -103,16 +110,20 @@ class Gui(tk.Tk):
         button_frame_row_3 = ttk.Frame(outer_frame)
         button_frame_row_3.pack()
         
-        four_button = ttk.Button(button_frame_row_3, text=4)
+        four_button = ttk.Button(button_frame_row_3, text=4, command= 
+                                 lambda button=4:self.on_button_clicked(button))
         four_button.pack(side="left")
         
-        five_button = ttk.Button(button_frame_row_3, text=5)
+        five_button = ttk.Button(button_frame_row_3, text=5, command=
+                                 lambda button=5:self.on_button_clicked(button))
         five_button.pack(side="left")
         
-        six_button = ttk.Button(button_frame_row_3, text=6)
+        six_button = ttk.Button(button_frame_row_3, text=6, command=
+                                lambda button=6:self.on_button_clicked(button))
         six_button.pack(side="left")
         
-        sub_button = ttk.Button(button_frame_row_3, text='-')
+        sub_button = ttk.Button(button_frame_row_3, text='-', command=
+                                lambda button='-':self.on_button_clicked(button))
         sub_button.pack(side="left")
         
         button_frame_row_3.pack()
@@ -121,16 +132,20 @@ class Gui(tk.Tk):
         button_frame_row_4 = ttk.Frame(outer_frame)
         button_frame_row_4.pack()
         
-        three_button = ttk.Button(button_frame_row_4, text=3)
+        three_button = ttk.Button(button_frame_row_4, text=3, command=
+                                  lambda button=3:self.on_button_clicked(button))
         three_button.pack(side="left")
         
-        two_button = ttk.Button(button_frame_row_4, text=2)
+        two_button = ttk.Button(button_frame_row_4, text=2, command= 
+                                lambda button=2:self.on_button_clicked(button))
         two_button.pack(side="left")
         
-        one_button = ttk.Button(button_frame_row_4, text=1)
+        one_button = ttk.Button(button_frame_row_4, text=1, command=
+                                lambda button=1:self.on_button_clicked(button))
         one_button.pack(side="left")
         
-        add_button = ttk.Button(button_frame_row_4, text='/')
+        add_button = ttk.Button(button_frame_row_4, text='/', command=
+                                lambda button='/':self.on_button_clicked(button))
         add_button.pack(side="left")
         
         button_frame_row_4.pack()
@@ -139,16 +154,22 @@ class Gui(tk.Tk):
         button_frame_row_5 = ttk.Frame(outer_frame)
         button_frame_row_5.pack()
         
-        period_button = ttk.Button(button_frame_row_5, text='.')
+        period_button = ttk.Button(button_frame_row_5, text='.', command=
+                                   lambda button='.':self.on_button_clicked(button))
         period_button.pack(side="left")
         
-        zero_button = ttk.Button(button_frame_row_5, text=0)
+        zero_button = ttk.Button(button_frame_row_5, text=0, command=
+                                 lambda button=0:self.on_button_clicked(button))
         zero_button.pack(side="left")
         
-        equals_button = ttk.Button(button_frame_row_5, text='=')
+        equals_button = ttk.Button(button_frame_row_5, text='=', command=
+                                   lambda button='=':self.on_button_clicked(button))
         equals_button.pack(side="left")
         
         button_frame_row_5.pack()
+    
+    def on_button_clicked(self,button):
+        print(f'{button} button clicked')
         
     '''
     Main function of class. Calls inherented mainloop method.
