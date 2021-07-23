@@ -19,7 +19,7 @@ class Calculator:
     def parse_input(self,input):
         # input is a number
         if(isinstance(input,int)):
-            self.value += input
+            self.value += str(input)
             #print(f'{input} was input')
         # input is a decimal point
         
