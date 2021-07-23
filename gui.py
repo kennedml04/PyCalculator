@@ -169,13 +169,13 @@ class Gui(tk.Tk):
                                     lambda button='+/-':self.on_button_clicked(button))
         inverse_button.pack(side="left")
         
-        period_button = ttk.Button(button_frame_row_5, text='.', command=
-                                   lambda button='.':self.on_button_clicked(button))
-        period_button.pack(side="left")
-        
         zero_button = ttk.Button(button_frame_row_5, text=0, command=
                                  lambda button=0:self.on_button_clicked(button))
         zero_button.pack(side="left")
+        
+        period_button = ttk.Button(button_frame_row_5, text='.', command=
+                                   lambda button='.':self.on_button_clicked(button))
+        period_button.pack(side="left")
         
         equals_button = ttk.Button(button_frame_row_5, text='=', command=
                                    lambda button='=':self.on_button_clicked(button))
