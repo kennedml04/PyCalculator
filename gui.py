@@ -6,6 +6,7 @@ Created on Jul 23, 2021
 
 import tkinter as tk
 from tkinter import ttk
+from calculator import Calculator
 
 """
 A class to create a view for a simple graphical calculator using Tkinter as
@@ -13,12 +14,15 @@ the parent class
 """
 class Gui(tk.Tk):
 
-    def __init__(self):
+    def __init__(self, calculator):
         
         # Initialize parent class
         super().__init__()
-        self.title("PyCalculator")
+        self.title("PyCalculator")\
+        # tk StringVar object to hold input/output values
+        self.value = tk.StringVar()
         # Initialize graphical window
+        self.calculator = calculator
         self.create_gui()
         
     '''
@@ -43,7 +47,7 @@ class Gui(tk.Tk):
     A method to create the entry element to hold the input/output data
     """
     def create_entry_element(self):
-        entry = ttk.Entry(self.main_frame)
+        entry = ttk.Entry(self.main_frame, textvariable=self.value)
         entry.pack()
     
     """
@@ -170,6 +174,9 @@ class Gui(tk.Tk):
     
     def on_button_clicked(self,button):
         print(f'{button} button clicked')
+        #self.calculator.parse_input(button)
+        self.value.set(self.calculator.parse_input(button))
+        
         
     '''
     Main function of class. Calls inherented mainloop method.
@@ -181,6 +188,7 @@ class Gui(tk.Tk):
  
 if __name__ == "__main__":
     # Create Gui object
-    gui = Gui()
+    calculator = Calculator()
+    gui = Gui(calculator)
     # Start the gui
     gui.main()       
