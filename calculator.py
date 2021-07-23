@@ -71,6 +71,7 @@ class Calculator:
         self.first_operand = ''
         self.value = ''
         self.has_error = False
+        
     def calculate(self, first_operand, operator, second_operand):
         if operator == "+":
             if(self.is_float):

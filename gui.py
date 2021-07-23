@@ -7,7 +7,6 @@ Created on Jul 23, 2021
 import tkinter as tk
 from tkinter import ttk
 from calculator import Calculator
-from tkinter.constants import BUTT
 
 """
 A class to create a view for a simple graphical calculator using Tkinter as
@@ -199,8 +198,7 @@ class Gui(tk.Tk):
     '''
     def main(self):
         self.mainloop()
- 
- 
+  
 if __name__ == "__main__":
     # Create Gui object
     calculator = Calculator()
