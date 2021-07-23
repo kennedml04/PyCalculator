@@ -14,7 +14,31 @@ the parent class
 class Gui(tk.Tk):
 
     def __init__(self, params):
-        '''
-        Constructor
-        '''
+        
+        # Initialize parent class
+        super().__init__()
+        self.title("PyCalculator")
+        # Initialize graphical window
+        self.create_gui()
+        
+    '''
+    A function to call all sub functions needed to build the GUI
+    '''
+    def create_gui(self):
+        self.create_main_frame()
+        self.create_entry_element()
+        self.create_button_elements()
+    
+    """
+    A method to create the main graphical frame to hold all elements. 
+    """
+    def create_main_frame(self):
+        pass
+    
+    def create_entry_element(self):
+        pass
+    
+    def create_button_elements(self):
+        pass
+    
         
