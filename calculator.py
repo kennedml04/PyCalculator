@@ -16,6 +16,8 @@ class Calculator:
         self.first_operand = ''
         # Keep track of whether or not the number being calculated is an int/float
         self.is_float = False
+        # Keep track of whether or not an error was returned. This allows the error to be
+        # displayed, while resetting state of the value to continue
         self.has_error = False
         
     """
@@ -23,12 +25,10 @@ class Calculator:
     what is needed for calculation 
     """
     def parse_input(self,input):
-        # input is a number
+        # Check if an error exists. If it does, call the clear method
         if(self.has_error):
-            self.is_float = False
-            self.first_operand = ''
-            self.value = ''
-            self.has_error = False
+            self.clear()
+        # input is a number
         if(isinstance(input,int)):
             self.value += str(input)
         # input is a decimal point
@@ -43,7 +43,6 @@ class Calculator:
             self.operator = input
             # clear value for second operand
             self.value = ''
-             
         # input is equal sign
         elif(input == "="):
             self.calculate(self.first_operand,self.operator,self.value)
@@ -56,12 +55,19 @@ class Calculator:
             
         # input is clear
         elif(input == 'C'):
-            self.is_float = False
-            self.first_operand = ''
-            self.value = ''
+            self.clear()
+        
+        # input is DEL
+        elif(input == "DEL"):
+            self.value = self.value[:-1]
             
         return self.value
     
+    def clear(self):
+        self.is_float = False
+        self.first_operand = ''
+        self.value = ''
+        self.has_error = False
     def calculate(self, first_operand, operator, second_operand):
         if operator == "+":
             if(self.is_float):
