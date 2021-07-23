@@ -57,6 +57,9 @@ class Calculator:
         elif(input == 'C'):
             self.clear()
         
+        # input is clear entry
+        elif(input == 'CE'):
+            self.value = ''
         # input is DEL
         elif(input == "DEL"):
             self.value = self.value[:-1]

@@ -48,8 +48,14 @@ class Gui(tk.Tk):
     A method to create the entry element to hold the input/output data
     """
     def create_entry_element(self):
-        entry = ttk.Entry(self.main_frame, textvariable=self.value)
-        entry.pack()
+        # create an entry object to go in the mainframe. save input/output to self.value
+        # put text on right side and prevent text input from being entered via keyboard
+        # TODO - Allow/validate keyboard entry to only allow valid input
+        entry = ttk.Entry(self.main_frame, textvariable=self.value, 
+                          justify="right", state="disabled")
+        
+        # Make the entry bar span the whole window
+        entry.pack(fill="x")
     
     """
     A method to create calculator buttons.
