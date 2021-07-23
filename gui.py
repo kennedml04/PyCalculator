@@ -7,6 +7,7 @@ Created on Jul 23, 2021
 import tkinter as tk
 from tkinter import ttk
 from calculator import Calculator
+from tkinter.constants import BUTT
 
 """
 A class to create a view for a simple graphical calculator using Tkinter as
@@ -57,11 +58,11 @@ class Gui(tk.Tk):
     in each row must be packed to the left
     
     The calculator gui will consists of five rows of buttons in the following orientation
-     C,+/-, /
+     DEL, CE, C, /
      7, 8, 9, * 
      4, 5, 6, -
      3, 2, 1, +
-     ., 0, = 
+     +/-, ., 0, = 
     
     """
     def create_button_elements(self):
@@ -74,13 +75,19 @@ class Gui(tk.Tk):
         button_frame_row_1 = ttk.Frame(outer_frame)
         button_frame_row_1.pack()
         
+        delete_button = ttk.Button(button_frame_row_1, text='DEL', command=
+                                   lambda button='DEL':self.on_button_clicked(button))
+        delete_button.pack(side="left")
+        
+        clear_entry_button = ttk.Button(button_frame_row_1, text='CE', command=
+                                    lambda button='CE':self.on_button_clicked(button))
+        clear_entry_button.pack(side="left")
+        
         clear_button = ttk.Button(button_frame_row_1, text='C', command=
                                   lambda button='C':self.on_button_clicked(button))
         clear_button.pack(side="left")
         
-        inverse_button = ttk.Button(button_frame_row_1, text='+/-', command=
-                                    lambda button='+/-':self.on_button_clicked(button))
-        inverse_button.pack(side="left")
+        
         
         divide_button = ttk.Button(button_frame_row_1, text='/', command=
                                    lambda button='/':self.on_button_clicked(button))
@@ -148,8 +155,8 @@ class Gui(tk.Tk):
                                 lambda button=1:self.on_button_clicked(button))
         one_button.pack(side="left")
         
-        add_button = ttk.Button(button_frame_row_4, text='/', command=
-                                lambda button='/':self.on_button_clicked(button))
+        add_button = ttk.Button(button_frame_row_4, text='+', command=
+                                lambda button='+':self.on_button_clicked(button))
         add_button.pack(side="left")
         
         button_frame_row_4.pack()
@@ -157,6 +164,10 @@ class Gui(tk.Tk):
         # Row 5: ., 0, = 
         button_frame_row_5 = ttk.Frame(outer_frame)
         button_frame_row_5.pack()
+        
+        inverse_button = ttk.Button(button_frame_row_5, text='+/-', command=
+                                    lambda button='+/-':self.on_button_clicked(button))
+        inverse_button.pack(side="left")
         
         period_button = ttk.Button(button_frame_row_5, text='.', command=
                                    lambda button='.':self.on_button_clicked(button))
@@ -173,8 +184,6 @@ class Gui(tk.Tk):
         button_frame_row_5.pack()
     
     def on_button_clicked(self,button):
-        print(f'{button} button clicked')
-        #self.calculator.parse_input(button)
         self.value.set(self.calculator.parse_input(button))
         
         
