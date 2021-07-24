@@ -3,7 +3,6 @@ Created on Jul 23, 2021
 
 @author: Matt Kennedy
 '''
-from pickle import TRUE
 
 """
 A class to parse input from the user and return output to the GUI 
@@ -49,10 +48,11 @@ class Calculator:
             self.calculate(self.first_operand,self.operator,self.value)
         # input is inverse
         elif(input == "+/-"):
-            if self.value[0] == '-':
-                self.value = self.value[1:]
+            #print(f'negate')
+            if str(self.value)[0] == '-':
+                self.value = str(self.value)[1:]
             else:
-                self.value = '-' + self.value
+                self.value = '-' + str(self.value)
             
         # input is clear
         elif(input == 'C'):
