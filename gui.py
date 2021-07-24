@@ -148,17 +148,17 @@ class Gui(tk.Tk):
         button_frame_row_4 = ttk.Frame(outer_frame)
         button_frame_row_4.pack()
         
-        three_button = ttk.Button(button_frame_row_4, text=3, command=
-                                  lambda button=3:self.on_button_clicked(button))
-        three_button.pack(side="left")
+        one_button = ttk.Button(button_frame_row_4, text=1, command=
+                                  lambda button=1:self.on_button_clicked(button))
+        one_button.pack(side="left")
         
         two_button = ttk.Button(button_frame_row_4, text=2, command= 
                                 lambda button=2:self.on_button_clicked(button))
         two_button.pack(side="left")
         
-        one_button = ttk.Button(button_frame_row_4, text=1, command=
-                                lambda button=1:self.on_button_clicked(button))
-        one_button.pack(side="left")
+        three_button = ttk.Button(button_frame_row_4, text=3, command=
+                                lambda button=3:self.on_button_clicked(button))
+        three_button.pack(side="left")
         
         add_button = ttk.Button(button_frame_row_4, text='+', command=
                                 lambda button='+':self.on_button_clicked(button))
