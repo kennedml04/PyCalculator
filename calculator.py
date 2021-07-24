@@ -3,6 +3,7 @@ Created on Jul 23, 2021
 
 @author: Matt Kennedy
 '''
+from pickle import TRUE
 
 """
 A class to parse input from the user and return output to the GUI 
@@ -84,7 +85,10 @@ class Calculator:
             else:
                 self.value = self.subtract_int(first_operand,second_operand)
         elif operator == "/":
-                self.value = self.divide(first_operand, second_operand)
+            if(self.is_float):
+                self.value = self.divide_float(first_operand, second_operand)
+            else:
+                self.value = self.divide_int(first_operand, second_operand)
         elif operator == "*":
             if(self.is_float):
                 self.value = self.multiply_float(first_operand, second_operand)
@@ -109,8 +113,14 @@ class Calculator:
     def multiply_float(self,x,y):
         return float(x)*float(y)
     
-    def divide(self,x,y):
-        if(int(y) == 0):
+    def divide_float(self,x,y):
+        if(y == 0.0):
             self.has_error = True
             return "CANNOT DIVIDE BY ZERO"
         return float(x)/float(y)
+    
+    def divide_int(self,x,y):
+        if(int(y) == 0):
+            self.has_error = True
+            return "CANNOT DIVIDE BY ZERO"
+        return int(x)//int(y)
